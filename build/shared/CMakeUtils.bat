@@ -22,7 +22,7 @@ set CleanCMake=OFF
 set XMPROOT=%buildSharedLoc%/../..
 
 :: Default Generator
-set GeneratorVersion=Visual Studio 14 2015
+set GeneratorVersion=Visual Studio 15 2017
 set GeneratorArchitecture=Win64
 set CMake_Arch64Bit=ON
 set CMake_ARCH=x64
@@ -115,7 +115,7 @@ if exist %CMakeFolder% rmdir /S /Q %CMakeFolder%
 
 mkdir %CMakeFolder%
 cd %CMakeFolder%
-echo cmake ../../../. -G"%GENERATOR%" -DXMP_CMAKEFOLDER_NAME="%CMakeFolder%" -DCMAKE_CL_64=%CMake_Arch64Bit% -DCMAKE_ARCH=%CMake_ARCH% -DXMP_BUILD_WARNING_AS_ERROR=%CMake_Build_Warning_As_Error% -DXMP_BUILD_STATIC="%CMake_BuildStatic%" 
+echo cmake ../../../. -G"%GENERATOR%" -Tv140 -DXMP_CMAKEFOLDER_NAME="%CMakeFolder%" -DCMAKE_CL_64=%CMake_Arch64Bit% -DCMAKE_ARCH=%CMake_ARCH% -DXMP_BUILD_WARNING_AS_ERROR=%CMake_Build_Warning_As_Error% -DXMP_BUILD_STATIC="%CMake_BuildStatic%" 
 cmake ../../../. -G"%GENERATOR%" -DXMP_CMAKEFOLDER_NAME="%CMakeFolder%" -DCMAKE_CL_64=%CMake_Arch64Bit% -DCMAKE_ARCH=%CMake_ARCH% -DXMP_BUILD_WARNING_AS_ERROR=%CMake_Build_Warning_As_Error% -DXMP_BUILD_STATIC="%CMake_BuildStatic%" 
 
 if errorlevel 1 goto error
